@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 
 export class NewsItem extends Component {
-    constructor(){
-        super();
-        console.log("Hello I am a consrtuctor")
-    }
-
+    
     render() {
-        let {title, description, imageUrl} = this.props;
+        let {title, description, imageUrl, newsUrl} = this.props;
         return (
             <div className="my-3">
                 <div className="card" style={{width: "18rem"}}>
