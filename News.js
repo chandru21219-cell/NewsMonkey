@@ -2,20 +2,278 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 
 export class News extends Component {
+    articles = [
+        {
+            "source": {
+                "id": "al-jazeera-english",
+                "name": "Al Jazeera English"
+            },
+            "author": "Al Jazeera",
+            "title": "Two more cruise ship passengers test positive for hantavirus - Al Jazeera",
+            "description": "One French passenger and one from the US test positive after being evacuated from the vessel in the Canary Islands.",
+            "url": "https://www.aljazeera.com/news/2026/5/11/two-more-cruise-ship-passengers-test-positive-for-hantavirus",
+            "urlToImage": "https://www.aljazeera.com/wp-content/uploads/2026/05/AFP__20260510__B2F73CL__v1__HighRes__SpainHealthHantavirusIllnessTourism-1-1778491712.jpg?resize=1920%2C1440",
+            "publishedAt": "2026-05-11T09:41:28Z",
+            "content": "A French woman and an American man have tested positive for hantavirus infections as countries around the world repatriate passengers from a cruise ship hit by a deadly outbreak.\r\nFrench Health Minis… [+2952 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "TMZ"
+            },
+            "author": "TMZ Staff",
+            "title": "Pete Davidson Jokes That Kanye West is a 'Gay Nazi' During Kevin Hart Roast - TMZ",
+            "description": "If you thought the beef between Pete Davidson and Kanye West was over, then think again because Pete may have just poured gasoline on the fire.",
+            "url": "https://www.tmz.com/2026/05/11/pete-davidson-kanye-west-kevin-hart/",
+            "urlToImage": "https://imagez.tmz.com/image/d0/16by9/2022/02/11/d045cfd4ad0a4070bb51c43ab1e18d2a_xl.jpg",
+            "publishedAt": "2026-05-11T09:15:41Z",
+            "content": "If you thought the beef between Pete Davidson and Kanye West was over, then think again because Pete may have just poured gasoline on the fire.\r\nHere's the deal ... Pete came out on stage at the Kia … [+1039 chars]"
+        },
+        
+        {
+            "source": {
+                "id": null,
+                "name": "BBC News"
+            },
+            "author": "Melissa Hogenboom",
+            "title": "Three enjoyable ways to slow your brain's ageing - BBC",
+            "description": "Our brains thrive on a challenge, but it doesn't all have to be hard work to see the health benefits. Here are three simple and fun ways to protect your brain as you age.",
+            "url": "https://www.bbc.com/future/article/20260508-three-impactful-ways-to-protect-your-brain-from-ageing",
+            "urlToImage": "https://ychef.files.bbci.co.uk/624x351/p0nk4s1b.jpg",
+            "publishedAt": "2026-05-11T09:00:59Z",
+            "content": "It's unclear whether enhancing this part of the brain could prevent dementia, but building extra cognitive reserve could offer extra protection. This helps explain why, as Chan says, post-mortem brai… [+324 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "NPR"
+            },
+            "author": "Joe Hernandez",
+            "title": "Budget-conscious shoppers are feeding a boom in discount groceries - NPR",
+            "description": "Many facing economic pressures and frustrations have begun shopping at budget grocery stores and warehouse clubs in lieu of traditional supermarkets, with priorities shifting in pursuit of good deals.",
+            "url": "https://www.npr.org/2026/05/11/nx-s1-5716202/discount-groceries-aldi-food-affordability",
+            "urlToImage": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5185x2915+0+164/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F00%2Fca%2Fe15b2c78405f94a451ba1ca7030d%2Faldi-03.JPG",
+            "publishedAt": "2026-05-11T09:00:00Z",
+            "content": "BELLMAWR, N.J. When Rachel Negro-Henderson started shopping at Aldi regularly during the pandemic a change her family made when her husband lost his income as a crew coach she'd sometimes have awkwar… [+7105 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "DW (English)"
+            },
+            "author": "Kate Hairsine",
+            "title": "Iranian Nobel winner Mohammadi moved to Tehran hospital - DW.com",
+            "description": "Human rights activist and Nobel Peace Prize laureate Narges Mohammadi has been released on bail and transferred to Tehran, her foundation said, amid alarm about her health.",
+            "url": "https://www.dw.com/en/iranian-nobel-winner-mohammadi-moved-to-tehran-hospital/a-77113033",
+            "urlToImage": "https://static.dw.com/image/77113110_6.jpg",
+            "publishedAt": "2026-05-11T08:55:09Z",
+            "content": "Nobel Peace Prize laureate Narges Mohammadi has been transferred to a hospital in Iran's capital Tehran for medical treatment, a foundation run by her family said Sunday.\r\nMohammadi has been granted … [+3138 chars]"
+        },
+        {
+            "source": {
+                "id": "politico",
+                "name": "Politico"
+            },
+            "author": "Hailey Fuchs, Erica Orden",
+            "title": "Congress’ Epstein probe raises a thorny question: Who counts as a victim? - Politico",
+            "description": "Sarah Kellen, Jeffrey Epstein’s onetime assistant, told prosecutors she was a victim. Now lawmakers wonder if she should be treated as an accomplice.",
+            "url": "https://www.politico.com/news/2026/05/11/congress-epstein-files-victims-00913579",
+            "urlToImage": "https://www.politico.com/dims4/default/resize/1200/quality/90/format/jpg?url=https%3A%2F%2Fstatic.politico.com%2F35%2F3f%2F59d9b3ed494db4051136754918a6%2Fstate-of-the-union-92437.jpg",
+            "publishedAt": "2026-05-11T08:45:00Z",
+            "content": "There is a list of four alleged victims that took plea deals that I think are co-conspirators and got let off the hook, Rep. Anna Paulina Luna (R-Fla.), a member of the Oversight Committee, said rece… [+6467 chars]"
+        },
+        {
+            "source": {
+                "id": "associated-press",
+                "name": "Associated Press"
+            },
+            "author": "Will Weissert",
+            "title": "Iran war could make Trump’s trip to China a bit chillier than his first-term visit - AP News",
+            "description": "President Donald Trump's trip to China may not come with the same fanfare that accompanied his first-term visit. In 2017, China went all out to welcome the new American president. For this week's get-together between Trump and China's Xi Jinping, the Iran war…",
+            "url": "https://apnews.com/article/trump-visit-china-xi-iran-trade-diplomacy-75a27d595cfa5882b1e5bef917385309",
+            "urlToImage": "https://dims.apnews.com/dims4/default/58c6858/2147483647/strip/true/crop/3277x2184+0+95/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F8f%2Fc0%2F3ce8fd8fdcd6ec8ea0e8a7e571f8%2Fbb7e41d9df2e49c9b9224ba450af8ee8",
+            "publishedAt": "2026-05-11T08:33:00Z",
+            "content": "WASHINGTON (AP) Long before this weeks trip to China, President Donald Trump was already predicting on social media that his Chinese counterpart, Xi Jinping, would give me a big, fat hug when I get t… [+7600 chars]"
+        },
+        {
+            "source": {
+                "id": "the-washington-post",
+                "name": "The Washington Post"
+            },
+            "author": "Mariana Alfaro, Karen DeYoung",
+            "title": "Trump calls Iran’s response to peace plan ‘unacceptable’ as ceasefire is tested - The Washington Post",
+            "description": "The Iranian document was in response to a 14-point proposal transmitted last week by the Trump administration that included nuclear program demands.",
+            "url": "https://www.washingtonpost.com/politics/2026/05/10/iran-response-us-proposal-war/",
+            "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://cloudfront-us-east-1.images.arcpublishing.com/wapo/TCHL23F4MJMVE423I5T2UUSTNU.JPG&w=1440",
+            "publishedAt": "2026-05-11T07:15:44Z",
+            "content": "President Donald Trump called Irans response to the latest U.S. proposal to end the war totally unacceptable.\r\nTrumps comments Sunday came hours after Tehran said, according to state media, that it s… [+248 chars]"
+        },
+        {
+            "source": {
+                "id": "associated-press",
+                "name": "Associated Press"
+            },
+            "author": "Chan Ho-him",
+            "title": "Asian shares are mixed and oil jumps 4% after Trump rejects Iran's response to ceasefire proposal - AP News",
+            "description": "Asian stocks are mixed after Wall Street set more records. Oil prices have surged more than 3% following U.S. President Donald Trump’s rejection of Tehran’s response to the latest U.S. proposal on ending the war in Iran. U.S. futures edged lower. Markets in S…",
+            "url": "https://apnews.com/article/stocks-markets-oil-iran-trump-234022685a51477ea9f72cc5aa170829",
+            "urlToImage": "https://dims.apnews.com/dims4/default/d865c84/2147483647/strip/true/crop/4439x2958+0+1/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F4e%2F12%2Fc7efe47ecca20bf0806fcfd33669%2Fbf858b19e46941ef83429548ffbf4369",
+            "publishedAt": "2026-05-11T05:24:00Z",
+            "content": "HONG KONG (AP) Asian stocks were mixed Monday after Wall Street set more records, and oil surged more than 3% following U.S. President Donald Trumps rejection of Tehrans response to the latest U.S. p… [+3145 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Twz.com"
+            },
+            "author": "Ian Ellis-Jones",
+            "title": "Where Are The Carriers As Of May 11, 2026: 20 Warships Enforce Iran Blockade - The War Zone",
+            "description": "Meanwhile, USS Nimitz has made a stop in Rio as part of its circumnavigation of South America and repositioning cruise to Norfolk.",
+            "url": "http://www.twz.com/sea/where-are-the-carriers-as-of-may-11-2026-20-warships-including-two-carriers-enforce-iran-blockade",
+            "urlToImage": "https://www.twz.com/wp-content/uploads/2026/05/TWZ-Carrier-Tracker-as-of-May-10-2026.png?w=1200",
+            "publishedAt": "2026-05-11T04:55:41Z",
+            "content": "The TWZ Newsletter\r\nWeekly insights and analysis on the latest developments in military technology, strategy, and foreign policy.\r\nTerms of Service and Privacy Policy\r\nHeres TWZs weekly carrier track… [+5305 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Android Authority"
+            },
+            "author": null,
+            "title": "Breaking: Samsung starts rolling out stable One UI 8.5 to Galaxy S25 users in the US - Android Authority",
+            "description": "Samsung has finally started rolling out the stable One UI 8.5 update to users in the US after releasing it in its home country last week.",
+            "url": "https://www.androidauthority.com/samsung-galaxy-s25-one-ui-8-5-us-rollout-3665329/",
+            "urlToImage": "https://www.androidauthority.com/wp-content/uploads/2025/01/Samsung-Galaxy-S25-Ultra-in-Titanium-Pinkgold-Display.jpg",
+            "publishedAt": "2026-05-11T04:55:07Z",
+            "content": "<ul><li>Samsung has officially released the stable One UI 8.5 update for the Galaxy S25 series in the US.</li><li>The update started rolling out in South Korea last week.</li><li>It brings previously… [+14081 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "NBCSports.com"
+            },
+            "author": "Kurt Helin",
+            "title": "Knicks leave no doubt, blow out 76ers by 30 to sweep Philadelphia out of playoffs - NBC Sports",
+            "description": "The Knicks are back in the Eastern Conference Finals for the second consecutive year.",
+            "url": "https://www.nbcsports.com/nba/news/knicks-leave-no-doubt-blow-out-76ers-by-30-to-sweep-Philadelphia-out-of-playoffs",
+            "urlToImage": "https://nbcsports.brightspotcdn.com/dims4/default/bf407ca/2147483647/strip/true/crop/5772x3247+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2F0d%2F76%2Fb0ea4c53497ca0807e9f279ca5a8%2Fhttps-api-imagn.com%2Frest%2Fdownload%2FimageID%3D28911096",
+            "publishedAt": "2026-05-11T04:49:14Z",
+            "content": "With opportunity knocking for some team to step up and show they were the team to beat in the East, the New York Knicks answered that door.\r\nThe Knicks slammed that door on Joel Embiid and the 76ers … [+3245 chars]"
+        },
+        {
+            "source": {
+                "id": "axios",
+                "name": "Axios"
+            },
+            "author": "Avery Lotz",
+            "title": "America's job market optimism gap is the worst in the world - Axios",
+            "description": "Elsewhere, young people are more positive, or the generations' sentiments are more aligned.",
+            "url": "https://www.axios.com/2026/05/11/american-job-market-pessimism-gallup-poll",
+            "urlToImage": "https://images.axios.com/9WBWhGihkoDaHxh-hIJNe08FY1w=/0x0:1600x900/1366x768/2026/05/07/1778178991717.png",
+            "publishedAt": "2026-05-11T04:28:17Z",
+            "content": "<ul><li>Elsewhere, younger people are more positive, or the generations' sentiments are more aligned.</li><li>When President Trump and China's leader Xi Jinping meet this week to discuss the world's … [+2981 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "WOAI"
+            },
+            "author": "Amanda Moreno",
+            "title": "Six people confirmed dead in Union Pacific cargo train at Laredo railyard - WOAI",
+            "description": "LAREDO, Texas - Multiple people have been found dead inside a Union Pacific cargo train in Laredo.According to the Laredo Police Department Public Information O",
+            "url": "https://news4sanantonio.com/news/local/multiple-bodies-found-in-union-pacific-cargo-train-at-laredo-railyard-mass-casuality-texas-migrants-texas-heat",
+            "urlToImage": "https://news4sanantonio.com/resources/media2/16x9/1566/1320/10x0/90/336e8ac7-3d5f-45cd-bba4-d8e7b6af96b7-Screenshot20260510213740.png",
+            "publishedAt": "2026-05-11T04:10:18Z",
+            "content": "LAREDO, Texas - Six people were found dead Sunday afternoon inside a Union Pacific boxcar in Laredo, Texas. \r\nAccording to the Laredo Police Department, the bodies were found just after 2:30 p.m. nea… [+1070 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Andscape.com"
+            },
+            "author": "Marc J. Spears",
+            "title": "From AJ Dybantsa to Darius Acuff Jr., NBA draft lottery talents make their case - Andscape",
+            "description": "The NBA draft lottery resulted in the Wizards owning the No. 1 pick. They have four top prospects to consider, in one of the deepest drafts of late.",
+            "url": "https://andscape.com/features/nba-draft-lottery-darius-acuff-aj-dybantsa-darryn-peterson/",
+            "urlToImage": "https://andscape.com/wp-content/uploads/2026/05/GettyImages-2274977064.jpg?w=4882",
+            "publishedAt": "2026-05-11T04:05:34Z",
+            "content": "CHICAGO AJ Dybantsa learned that the nations capital could very well be his future home when the Washington Wizards were awarded the No. 1 pick in the 2026 NBA draft on Sunday. But with Darryn Peters… [+6517 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Android Authority"
+            },
+            "author": null,
+            "title": "GrapheneOS says Google is making life harder for rival operating systems and devices - Android Authority",
+            "description": "GrapheneOS claims Google's security systems make it harder for alternative operating systems and devices to access apps and online services.",
+            "url": "https://www.androidauthority.com/grapheneos-google-apple-approved-devices-web-warning-3665319/",
+            "urlToImage": "https://www.androidauthority.com/wp-content/uploads/2023/02/grapheneos-boot-animation.jpg",
+            "publishedAt": "2026-05-11T03:58:13Z",
+            "content": "<ul><li>GrapheneOS claims Google and Apple are increasingly using device verification systems to lock users into their own hardware and software.</li><li>The platform says tools like Googles Play Int… [+2815 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Heat.com"
+            },
+            "author": "Dave Campbell | The Associated Press",
+            "title": "Victor Wembanyama ejected on flagrant foul in Spurs' Game 4 loss - NBA",
+            "description": "Spurs star Victor Wembanyama was ejected for throwing an elbow toward Wolves big Naz Reid early in the 2nd quarter of Game 4.",
+            "url": "https://www.nba.com/news/victor-wembanyama-ejected-on-flagrant-foul-in-spurs-game-4-loss",
+            "urlToImage": "https://cdn.nba.com/manage/2026/05/GettyImages-2275527664-scaled-e1778467410452.jpg",
+            "publishedAt": "2026-05-11T02:48:18Z",
+            "content": "Victor Wembanyama earns the 1st ejection of his career for a flagrant foul on Timberwolves big Naz Reid early in Game 4.\r\n Download the NBA App\r\nMINNEAPOLIS (AP) San Antonio Spurs star Victor Wembany… [+1444 chars]"
+        },
+        {
+            "source": {
+                "id": "cnn",
+                "name": "CNN"
+            },
+            "author": "Aleena Fayaz",
+            "title": "Hegseth calls for Sen. Mark Kelly to be investigated by Pentagon for second time - CNN",
+            "description": "Defense Secretary Pete Hegseth on Sunday called for Sen. Mark Kelly to be investigated over comments he made about US weapon stockpiles, marking the second time the Pentagon chief has opened a review into the Democratic senator.",
+            "url": "https://www.cnn.com/2026/05/10/politics/mark-kelly-pete-hegseth-pentagon-investigation",
+            "urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/ap26127628338196.jpg?c=16x9&q=w_800,c_fill",
+            "publishedAt": "2026-05-11T02:18:00Z",
+            "content": "Defense Secretary Pete Hegseth on Sunday called for Sen. Mark Kelly to be investigated over comments he made about US weapon stockpiles, marking the second time the Pentagon chief has opened a review… [+3348 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Abcnews.com"
+            },
+            "author": "LINDSEY BAHR AP film writer",
+            "title": "'The Devil Wears Prada 2' bests ‘Mortal Kombat II’ at the box office - ABC News - Breaking News, Latest News and Videos",
+            "description": "“The Devil Wears Prada 2” edges out “Mortal Kombat II” at the North American box office this weekend",
+            "url": "https://abcnews.com/Entertainment/wireStory/devil-wears-prada-2-bests-mortal-kombat-ii-132827987",
+            "urlToImage": "https://i.abcnewsfe.com/a/d6283bb4-284c-41fe-96d5-41d180616cb9/wirestory_c287918fbc4172ee10ee0be2106efc10_16x9.jpg?w=1600",
+            "publishedAt": "2026-05-11T01:41:42Z",
+            "content": "In a box office battle of the sequels, The Devil Wears Prada 2 had the slight edge over Mortal Kombat II in North American theaters this weekend. According to studio estimates Sunday, The Devil Wears… [+3876 chars]"
+        }
+    ]
+     constructor(){
+        super();
+        console.log("Hello I am a consrtuctor from news component");
+        this.state = {
+            articles: this.articles,
+            loading: false
+            
+        }
+    }
     render() {
         return (
-            <div className="container" my-3>
+            <div className="container my-3">
                 <h2>NewsMonket - Top Headlines</h2>
+                
                 <div className="row">
-                    <div className="col-md-4">
-                        <NewsItem title="myTitle" description="mydesc" imageUrl="https://www.aljazeera.com/wp-content/uploads/2026/05/AFP__20260510__B2F73CL__v1__HighRes__SpainHealthHantavirusIllnessTourism-1-1778491712.jpg?resize=1920%2C1440"/>
+                    {this.state.articles.map ((element)=>{
+                      return <div className="col-md-4">
+                        <NewsItem key={element.url} title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl="TODO"/>
                     </div>
-                    <div className="col-md-4">
-                        <NewsItem title="myTitle" description="mydesc" />
-                    </div>
-                    <div className="col-md-4">
-                        <NewsItem title="myTitle" description="mydesc" />
-                    </div>
+                    })}
+                    
+                    
                 </div>
                 
             </div>
